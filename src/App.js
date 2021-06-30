@@ -1,4 +1,4 @@
-import './App.css';
+import 'assets/css/app.css';
 
 function App() {
   return (
@@ -7,6 +7,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p class="text-purple-600 ">hai</p>
+
         <a
           className="App-link"
           href="https://reactjs.org"
