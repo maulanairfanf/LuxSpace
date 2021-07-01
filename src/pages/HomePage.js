@@ -7,7 +7,12 @@ import JustArrived from 'parts/HomePage/JustArrived';
 import BrowseRoom from 'parts/HomePage/BrowseRoom';
 import Sitemap from 'parts/Sitemap';
 
+import useScrollAnchor from 'helpers/hooks/useScrollAnchor';
+import useModalDOM from 'helpers/hooks/useModalDOM';
+
 export default function HomePage() {
+  useScrollAnchor();
+  useModalDOM();
   return (
     <>
       <Header theme="white" position="absolute" />
