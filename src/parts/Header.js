@@ -80,7 +80,6 @@ export default function Header({ theme, position }) {
                 <button
                   className={[
                     'flex z-50 items-center justify-center w-8 h-8 text-black md:text-white focus:outline-none',
-
                     theme === 'white'
                       ? 'text-black md:text-white'
                       : 'text-black md:text-black',
