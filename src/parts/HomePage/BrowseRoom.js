@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import useAsync from 'helpers/hooks/useAsync';
 
 export default function BrowseRoom() {
-  const { data, status, error, run } = useAsync({ data: { username: '' } });
+  const { data, status, error, run, isLoading } = useAsync({
+    data: { username: '' },
+  });
   console.log(data, status, error);
 
   useEffect(() => {
@@ -17,6 +19,8 @@ export default function BrowseRoom() {
       })
     );
   }, [run]);
+
+  if (isLoading) return 'Loading';
   return (
     <section className="flex bg-gray-100 py-16 px-4" id="browse-the-room">
       <div className="container mx-auto">
