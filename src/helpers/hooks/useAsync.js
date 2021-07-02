@@ -7,7 +7,7 @@ const defaultState = {
 };
 
 export default function useAsync(initialState) {
-  const [state, setState] = useState({
+  const [{ data, status, error }, setState] = useState({
     ...defaultState,
     ...initialState,
   });
@@ -31,5 +31,5 @@ export default function useAsync(initialState) {
     },
     [setState]
   );
-  return {};
+  return { data, status, error, run };
 }
