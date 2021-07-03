@@ -22,7 +22,7 @@ function Loading() {
 }
 
 export default function JustArrived() {
-  const { data, status, error, run, isLoading } = useAsync();
+  const { data, error, run, isLoading } = useAsync();
 
   const refContainer = useRef(null);
 
@@ -42,7 +42,6 @@ export default function JustArrived() {
       </div>
       <div className="overflow-x-hidden px-4" id="carousel">
         <div className="container mx-auto" ref={refContainer}></div>
-        {/* <div className="overflow-hidden z-10"> */}
         {isLoading ? (
           <div
             className="flex -mx-4 flex-row relative"
@@ -92,16 +91,13 @@ export default function JustArrived() {
                   <Link
                     to={`/categories/${item.idc}/products/${item.id}`}
                     className="stretched-link"
-                  >
-                    {/* <!-- fake children --> */}
-                  </Link>
+                  ></Link>
                 </div>
               );
             })}
           </Carousel>
         )}
       </div>
-      {/* </div> */}
     </section>
   );
 }

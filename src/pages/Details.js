@@ -106,7 +106,7 @@ export default function Detais() {
         url: `/api/products/${idp}`,
       })
     );
-  }, [run]);
+  }, [run,idp]);
   return (
     <>
       <Header theme="black" />
