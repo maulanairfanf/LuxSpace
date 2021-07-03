@@ -4,7 +4,6 @@ export default function useScrollAnchor() {
   useLayoutEffect(() => {
     const smoothScrollAnchor = document.querySelectorAll("a[href^='#']");
     for (let anchor = 0; anchor < smoothScrollAnchor.length; anchor++) {
-      console.log(smoothScrollAnchor);
       const element = smoothScrollAnchor[anchor];
       element.addEventListener('click', function (e) {
         e.preventDefault();

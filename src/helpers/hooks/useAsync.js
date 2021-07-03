@@ -21,12 +21,13 @@ export default function useAsync(initialState) {
     promise => {
       if (!promise || !promise.then)
         throw new Error(
-          'the argument passed to useAsync().run mus be a promise'
+          `The argument passed to useAsync().run must be a promise`
         );
       safeSetState({ status: 'pending' });
       return promise.then(
         data => {
           safeSetState({ data, status: 'resolved' });
+
           return data;
         },
         error => {
@@ -67,8 +68,8 @@ export default function useAsync(initialState) {
     setError,
     reset,
     isIdle: status === 'idle',
-    isLoading : status === " idle" || status === "pending",
-    isError : status === "rejected",
-    isSusccess : status === "resolvedd"
+    isLoading: status === 'idle' || status === 'pending',
+    isError: status === 'rejected',
+    isSuccess: status === 'resolved',
   };
 }
