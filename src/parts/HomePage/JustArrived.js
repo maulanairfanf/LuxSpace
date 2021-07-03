@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import useAsync from 'helpers/hooks/useAsync';
 import fetch from 'helpers/fetch';
 import Carousel from 'components/Carousel';
+import { Link } from 'react-router-dom';
 
 function Loading() {
   return Array(6)
@@ -88,7 +89,12 @@ export default function JustArrived() {
                   </div>
                   <h5 className="text-lg font-semibold mt-4">{item.title}</h5>
                   <span className="">IDR {item.price}</span>
-                  <a href="/details" className="stretched-link"></a>
+                  <Link
+                    to={`/categories/${item.idc}/products/${item.id}`}
+                    className="stretched-link"
+                  >
+                    {/* <!-- fake children --> */}
+                  </Link>
                 </div>
               );
             })}

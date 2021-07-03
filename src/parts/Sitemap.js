@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SitemapLinks({ isActive, setActive, children, title }) {
-  console.log(isActive);
   return (
     <div className="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
       <h5 className="text-lg font-semibold mb-2 relative">
@@ -44,7 +43,6 @@ function SitemapLinks({ isActive, setActive, children, title }) {
 
 export default function Sitemap() {
   const [active, setActive] = useState(null);
-  console.log(active);
   return (
     <section className="">
       <div className="border-t border-b border-gray-200 py-12 mt-16 px-4">
