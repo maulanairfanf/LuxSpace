@@ -5,7 +5,6 @@ import Sitemap from 'parts/Sitemap';
 import Document from 'parts/Document';
 import { Link } from 'react-router-dom';
 import Breadcrumbs from 'components/Breadcrumbs';
-import useScrollToTop from 'helpers/hooks/useScrollToTop';
 
 export default function Congratulations() {
   return (
