@@ -9,6 +9,7 @@ import Suggestion from 'parts/Details/Suggestion';
 import Breadcrunbs from 'components/Breadcrumbs';
 import useAsync from 'helpers/hooks/useAsync';
 import fetch from 'helpers/fetch';
+import useScrollToTop from 'helpers/hooks/useScrollToTop';
 
 function LoadingProductDetails() {
   return (
@@ -98,6 +99,7 @@ function LoadingSuggestion() {
 }
 
 export default function Detais() {
+  useScrollToTop()
   const { idp } = useParams();
   const { data, run, isLoading } = useAsync();
   useEffect(() => {

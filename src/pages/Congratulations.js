@@ -4,8 +4,10 @@ import Footer from 'parts/Footer';
 import Sitemap from 'parts/Sitemap';
 import { Link } from 'react-router-dom';
 import Breadcrumbs from 'components/Breadcrumbs';
+import useScrollToTop from 'helpers/hooks/useScrollToTop';
 
 export default function Congratulations() {
+  useScrollToTop()
   return (
     <>
       <Header theme="black" />
