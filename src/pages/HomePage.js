@@ -6,17 +6,15 @@ import Hero from 'parts/HomePage/Hero';
 import JustArrived from 'parts/HomePage/JustArrived';
 import BrowseRoom from 'parts/HomePage/BrowseRoom';
 import Sitemap from 'parts/Sitemap';
-
+import Document from 'parts/Document';
 import useScrollAnchor from 'helpers/hooks/useScrollAnchor';
 import useModalDOM from 'helpers/hooks/useModalDOM';
 import useScrollToTop from 'helpers/hooks/useScrollToTop';
 
 export default function HomePage() {
-  useScrollAnchor();
-  useModalDOM();
-  useScrollToTop()
+
   return (
-    <>
+    <Document>
       <Header theme="white" position="absolute" />
       <Hero />
       <BrowseRoom />
@@ -24,6 +22,6 @@ export default function HomePage() {
       <Clients />
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }

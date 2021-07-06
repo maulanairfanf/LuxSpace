@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { useGlobalContext } from 'helpers/hooks/useGlobalContext';
+import 'helpers/format/currency';
 
 export default function ProductDetails({ data }) {
   const [slider, setSlider] = useState(() => data?.imgUrls?.[0] || '');
@@ -51,7 +52,7 @@ export default function ProductDetails({ data }) {
         </div>
         <div className="flex-1 px-4 md:p-6">
           <h2 className="text-5xl font-semibold">{data.title}</h2>
-          <p className="text-xl">IDR {data.price}</p>
+          <p className="text-xl">{data.price.currency()}</p>
 
           <button
             href="cart.html"

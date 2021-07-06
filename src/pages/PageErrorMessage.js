@@ -1,11 +1,10 @@
-import useScrollToTop from 'helpers/hooks/useScrollToTop';
+import Document from 'parts/Document';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PageErrorMessage({ title, body }) {
-  useScrollToTop()
   return (
-    <>
+    <Document>
       <section className="mt-28">
         <div className="container mx-auto min-h-screen">
           <div className="flex flex-col items-center justify-center">
@@ -22,7 +21,7 @@ export default function PageErrorMessage({ title, body }) {
           </div>
         </div>
       </section>
-    </>
+    </Document>
   );
 }
 

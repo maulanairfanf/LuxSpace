@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
 import Header from 'parts/Header';
 import Footer from 'parts/Footer';
 import Sitemap from 'parts/Sitemap';
+import Document from 'parts/Document';
+import PageErrorMessage from './PageErrorMessage';
 import ProductDetails from 'parts/Details/ProductDetails';
 import Suggestion from 'parts/Details/Suggestion';
 import Breadcrunbs from 'components/Breadcrumbs';
 import useAsync from 'helpers/hooks/useAsync';
 import fetch from 'helpers/fetch';
-import useScrollToTop from 'helpers/hooks/useScrollToTop';
 
 function LoadingProductDetails() {
   return (
@@ -99,18 +99,17 @@ function LoadingSuggestion() {
 }
 
 export default function Detais() {
-  useScrollToTop()
   const { idp } = useParams();
-  const { data, run, isLoading } = useAsync();
+  const { data, error, run, isLoading,isError } = useAsync();
   useEffect(() => {
     run(
       fetch({
         url: `/api/products/${idp}`,
       })
     );
-  }, [run,idp]);
+  }, [run, idp]);
   return (
-    <>
+    <Document>
       <Header theme="black" />
 
       <Breadcrunbs
@@ -120,15 +119,26 @@ export default function Detais() {
           { url: '/categories/91231/products/7888', name: 'Details' },
         ]}
       />
-      {isLoading ? <LoadingProductDetails /> : <ProductDetails data={data} />}
-      {isLoading ? (
-        <LoadingSuggestion />
+      {isError ? (
+        <PageErrorMessage title="Product Not Found" body={error.errors.messege} />
       ) : (
-        <Suggestion data={data.relatedProducts} />
+        <>
+          {' '}
+          {isLoading ? (
+            <LoadingProductDetails />
+          ) : (
+            <ProductDetails data={data} />
+          )}
+          {isLoading ? (
+            <LoadingSuggestion />
+          ) : (
+            <Suggestion data={data.relatedProducts} />
+          )}
+        </>
       )}
 
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }
